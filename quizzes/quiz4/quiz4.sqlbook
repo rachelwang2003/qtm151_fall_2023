@@ -52,12 +52,16 @@ the image and following the instructions in Lecture 16
 HINT: Include any column names with upper case in doube quotations, <br> e.g.
 "raceId". If you don't you'll get an error
 -- SQLBook: Code
--- Active: 1698696560900@@127.0.0.1@5432@postgres
+-- Active: 1699909904767@@127.0.0.1@5432@formula1
 DROP DATABASE IF EXISTS formula1;
 
 CREATE DATABASE formula1;
+
+CREATE SCHEMA pitstop;
+
+
 -- SQLBook: Code
--- Active: 1698696560900@@127.0.0.1@5432@formula1
+-- Active: 1699909904767@@127.0.0.1@5432@formula1@public
 DROP TABLE IF EXISTS lap_times;
 CREATE TABLE lap_times(
     "raceId" int,
@@ -101,6 +105,7 @@ HINT: Remember to always refer to column names with at <br>
 least one capital letter with double quotations, e.g. "driverId" <br>
 HINT: See Lecture 16
 -- SQLBook: Code
+-- Active: 1699909904767@@127.0.0.1@5432@formula1@pitstop
 SELECT * FROM pit_stops
 WHERE (lap >= 1) AND (lap <= 5)
 ORDER BY milliseconds ASC;
@@ -118,11 +123,12 @@ grouped by "driverId" using SELECT, FROM, and GROUP BY.
 
 HINT: See the end of lectures 16
 -- SQLBook: Code
-SELECT driverId,
+-- Active: 1699909904767@@127.0.0.1@5432@formula1@pitstop
+SELECT "driverId",
        MIN(milliseconds) AS min_milliseconds,
        MAX(milliseconds) AS max_milliseconds
 FROM pit_stops
-GROUP BY driverId;
+GROUP BY "driverId";
 -- SQLBook: Markup
 
 <font size = "5">
@@ -139,7 +145,7 @@ number of rows by "driverId" ```GROUP BY``` <br>
 HINT: Remember to include "driverId" in double <br>
 quotations it includes a mix of lower case and upper case letters
 -- SQLBook: Code
--- Active: 1698696560900@@127.0.0.1@5432@formula1
+-- Active: 1699909904767@@127.0.0.1@5432@formula1@pitstop
 SELECT "driverId",
         COUNT(*) AS row_count
 FROM pit_stops
@@ -158,6 +164,7 @@ number of rows by "driverId" ```GROUP BY``` <br>
  - Then subset drivers with more than 200 stops <br>
  using ```HAVING ```
 -- SQLBook: Code
+-- Active: 1699909904767@@127.0.0.1@5432@formula1@pitstop
 SELECT "driverId", COUNT(*) AS row_count
 FROM pit_stops
 GROUP BY "driverId"

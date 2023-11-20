@@ -6,6 +6,7 @@
 <font size = "5">
 Add a comment with your Emory ID below
 -- SQLBook: Code
+
 -- 2509241
 
 -- SQLBook: Markup
@@ -13,8 +14,12 @@ Add a comment with your Emory ID below
 
 (a) Create a new SQL database called formula1
 -- SQLBook: Code
--- Active: 1698696560900@@127.0.0.1@5432@formula1
--- Write your own code
+DROP DATABASE IF EXISTS formula1;
+
+CREATE DATABASE formula1;
+
+CREATE SCHEMA pitstop;
+
 
 -- SQLBook: Markup
 
