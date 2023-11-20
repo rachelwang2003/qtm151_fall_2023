@@ -26,7 +26,7 @@ United States Congress dataset
 -- SQLBook: Markup
 # <span style="color:darkblue"> II. Create and Activate a New Database </span>
 -- SQLBook: Code
--- Active: 1699909904767@@127.0.0.1@5432@postgres
+-- Active: 1699909904767@@127.0.0.1@5432
 DROP DATABASE IF EXISTS us_congress;
 
 CREATE DATABASE us_congress;
